@@ -1,5 +1,8 @@
 import os
 import pickle
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import GaussianNB
 
 # define the class encodings and reverse encodings
@@ -10,6 +13,15 @@ r_classes = {y: x for x, y in classes.items()}
 def init_model():
     if not os.path.isfile("models/seeds_nb.pkl"):
         clf = GaussianNB()
+        df = pd.read_csv('./data/seeds_dataset.txt', sep= '\t', header= None,
+                names=['area','perimeter','compactness','lengthOfKernel','widthOfKernel','asymmetryCoefficient',
+                      'lengthOfKernelGroove','seedType'])
+        X = df.drop('seedType', axis = 1)
+        y = df['seedType']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size= 0.3)
+        clf.fit(X_train, y_train)
+        accuracy = accuracy_score(y_test, clf.predict(X_test))
+        print("Model trained with Accuracy: " , accuracy)
         pickle.dump(clf, open("models/seeds_nb.pkl", "wb"))
 
 
