@@ -9,12 +9,12 @@ https://github.com/PGCSEDS-IIITH/compose-iris contains code which demonstrates d
 
 ## Running Instructions
 - Create a fork of the repo using the `fork` button.
-- Clone your fork using `git clone https://www.github.com/<your-username>/compose-iris.git`
+- Clone your fork using `git clone https://www.github.com/techenik/compose-iris.git`
 - Build the images using `docker-compose build`
 - Spin up the containers using `docker-compose up`
 
 ## Assignment Task
-Implement this stack for some dataset of your choice
+Implement this stack for some dataset of your choice - I have selected the seeds dataset. https://archive.ics.uci.edu/ml/datasets/seeds
 
 ## Submission
 Submit a link to your forked repository

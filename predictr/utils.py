@@ -5,14 +5,14 @@ from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
 
 # define the class encodings and reverse encodings
-classes = {0: "Iris Setosa", 1: "Iris Versicolour", 2: "Iris Virginica"}
+classes = {1: "Kama", 2: "Rosa", 3: "Canadian"}
 r_classes = {y: x for x, y in classes.items()}
 
 
 # function to load the model
 def load_model():
     global clf
-    clf = pickle.load(open("models/iris_nb.pkl", "rb"))
+    clf = pickle.load(open("models/seeds_nb.pkl", "rb"))
 
 
 # function to predict the flower using the model
